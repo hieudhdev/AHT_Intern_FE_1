@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel World</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"> 
+    <link rel="stylesheet" href="styles.css">
+    <script src="index.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Travel World</h1>  
+    </header>
+    <main>
+        <section class="destinations">
+            <!-- <h2>Popular Destinations</h2> -->
+            <div class="destination">
+                <img src="assets\images\austria.jpg" alt="Destination 1" onclick="openModal();currentSlide(1)" class="hover-shadow">
+                <h3>Salzburg, Austria</h3>
+                <p>Áo, xứ sở tuyệt đẹp với dãy Alps hùng vĩ, văn hóa phong phú, thiên đường du lịch</p>
+                <button class="book-now" data-destination="#booking-form">Book now</button>
+            </div>
+            <div class="destination">
+                <img src="assets\images\china.jpg" alt="Destination 2" onclick="openModal();currentSlide(2)" class="hover-shadow">
+                <h3>Beijing, China</h3>
+                <p>Trung Quốc, đất nước rộng lớn với Tử Cấm Thành, kiến trúc đặc biệt</p>
+                <button class="book-now" data-destination="#booking-form">Book now</button>
+            </div>
+            <div class="destination">
+                <img src="assets\images\indonesia.jpg" alt="Destination 3" onclick="openModal();currentSlide(3)" class="hover-shadow">
+                <h3>Bali, Indonesia</h3>
+                <p>Bali, Indonesia, thiên đường nhiệt đới với bãi biển tuyệt đẹp, rừng rậm xanh mướt</p>
+                <button class="book-now" data-destination="#booking-form">Book now</button>
+            </div>
+            <div class="destination">
+                <img src="assets\images\italy.jpg" alt="Destination 4" onclick="openModal();currentSlide(4)" class="hover-shadow">
+                <h3>Venice, Italy</h3>
+                <p>Italy, đất nước lãng mạn với kênh đào Venice, kiến trúc cổ kính và ẩm thực trứ danh</p>
+                <button class="book-now" data-destination="#booking-form">Book now</button>
+            </div>
+            <div class="destination">
+                <img src="assets\images\japan.jpg" alt="Destination 5" onclick="openModal();currentSlide(5)" class="hover-shadow">
+                <h3>Osaka, Japan</h3>
+                <p>Osaka, Nhật Bản, thành phố hiện đại với lâu đài cổ kính, hoa anh đào rực rỡ</p>
+                <button class="book-now" data-destination="#booking-form">Book now</button>
+            </div>
+            <div class="destination">
+                <img src="assets\images\netherlands.jpg" alt="Destination 6" onclick="openModal();currentSlide(6)" class="hover-shadow">
+                <h3>Amsterdam, Netherlands</h3>
+                <p>Hà Lan, kênh đào Amsterdam, có cối xay gió và những cánh đồng hoa</p>
+                <button class="book-now" data-destination="#booking-form">Book now</button>
+            </div>
+            <div class="destination">
+                <img src="assets\images\norway.jpg" alt="Destination 7" onclick="openModal();currentSlide(7)" class="hover-shadow">
+                <h3>Geirangerfjord, Norway</h3>
+                <p>Geirangerfjord, Na Uy, vùng fjord hùng vĩ với cảnh quan thiên nhiên tráng lệ</p>
+                <button class="book-now" data-destination="#booking-form">Book now</button>
+            </div>
+            <div class="destination">
+                <img src="assets\images\spain.jpg" alt="Destination 8"  onclick="openModal();currentSlide(8)" class="hover-shadow">
+                <h3>Barcelona, Spain</h3>
+                <p>Barcelona, Tây Ban Nha, thành phố sôi động với kiến trúc Gaudí độc đáo</p>
+                <button class="book-now" data-destination="#booking-form">Book now</button>
+            </div>
+            <div class="destination">
+                <img src="assets\images\sweden.jpg" alt="Destination 9" onclick="openModal();currentSlide(9)" class="hover-shadow">
+                <h3>Stockholm, Sweden</h3>
+                <p>Stockholm, Thụy Điển, thanh bình với kiến trúc cổ kính, thiên nhiên lãng mạn</p>
+                <button class="book-now" data-destination="#booking-form">Book now</button>
+            </div>
+            <div class="destination">
+                <a href="#lightbox">
+                    <img src="assets\images\switzerland.jpg" alt="Destination 10" onclick="openModal();currentSlide(10)" class="hover-shadow">
+                </a>
+                <h3>Lucerne, Switzerland</h3>
+                <p>Lucerne, Thụy Sĩ, quyến rũ với đồng cỏ trong xanh, dãy núi Alps tráng lệ</p>
+                <button class="book-now" data-destination="#booking-form">Book now</button>
+            </div>
+        </section>
+        
+        <!-- form booking -->
+        <div id="booking-form" class="booking-form">
+            <h2 style="text-align:center">Book a Tour</h2>
+            <form action="/" method="GET">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required class="border border-black">
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required class="border border-black">
+                
+                <label for="destination">Desired Destination:</label>
+                <select id="destination" name="destination" required class="border border-black">
+                    <option value="destination1">Destination 1</option>
+                    <option value="destination2">Destination 2</option>
+                    <option value="destination3">Destination 3</option>
+                    <option value="destination4">Destination 4</option>
+                    <option value="destination5">Destination 5</option>
+                </select>
+                
+                <label for="departure-date">Departure Date:</label>
+                <input type="date" id="departure-date" name="departure-date" required class="border border-black">
+                
+                <button type="button" onclick="bookTour()">Book Now</button>
+            </form>
+        </div>
+
+        <!-- Comment section -->
+        <div class="bg-gray-100 p-6 mt-10 ml-100 w-4/6 mx-auto">
+            <h2 class="text-lg font-bold mb-4">Leave a Comment</h2>
+            <div class="flex flex-col space-y-4">
+                <form class="bg-white p-4 rounded-lg shadow-md">
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-bold mb-2" for="name">
+                            Name
+                        </label>
+                        <input
+                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            id="nameComment" type="text" placeholder="Enter your name">
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-bold mb-2" for="comment">
+                            Comment
+                        </label>
+                        <textarea
+                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            id="comment" rows="3" placeholder="Enter your comment"></textarea>
+                    </div>
+                    <button onclick="submitComment()" type="button" class="font-bold text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Submit</button>
+                </form>
+                
+                <div class="comment-list" id="commentList">
+                    <!-- Comments will be appended here -->
+                </div>
+                
+                <!-- delete comment button -->
+                <button onclick="deleteAllComments()" type="button" class="font-bold text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Delete all comments</button>
+            </div>
+        </div>
+
+        <!-- Lightbox Container -->
+        <div id="myModal" class="modal">
+            <span class="close cursor" onclick="closeModal()">&times;</span>
+            <div class="modal-content">
+
+            <div class="mySlides">
+                <div class="numbertext">1 / 10</div>
+                <img src="assets\images\austria.jpg" style="width:100%">
+            </div>      
+            <div class="mySlides">
+                <div class="numbertext">2/ 10</div>
+                <img src="assets\images\china.jpg" style="width:100%">
+            </div>   
+            <div class="mySlides">
+                <div class="numbertext">3 / 10</div>
+                <img src="assets\images\indonesia.jpg" style="width:100%">
+            </div>
+            <div class="mySlides">
+                <div class="numbertext">4 / 10</div>
+                <img src="assets\images\italy.jpg" style="max-height:30%">
+            </div>
+            <div class="mySlides">
+                <div class="numbertext">5 / 10</div>
+                <img src="assets\images\japan.jpg" style="width:100%">
+            </div>
+            <div class="mySlides">
+                <div class="numbertext">6 / 10</div>
+                <img src="assets\images\netherlands.jpg" style="width:100%">
+            </div>
+            <div class="mySlides">
+                <div class="numbertext">7 / 10</div>
+                <img src="assets\images\norway.jpg" style="width:100%">
+            </div>
+            <div class="mySlides">
+                <div class="numbertext">8 / 10</div>
+                <img src="assets\images\spain.jpg" style="width:100%">
+            </div>
+            <div class="mySlides">
+                <div class="numbertext">9 / 10</div>
+                <img src="assets\images\sweden.jpg" style="width:100%">
+            </div>
+            <div class="mySlides">
+                <div class="numbertext">10 / 10</div>
+                <img src="assets\images\switzerland.jpg" style="width:100%">
+            </div>
+        
+            <!-- Next/previous controls -->
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        
+            <!-- Caption text -->
+            <div class="caption-container">
+                <p id="caption"></p>
+            </div>
+
+        </div>
+    </main>
+
+</body>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        loadComments();
+    });
+</script>
+</html>
